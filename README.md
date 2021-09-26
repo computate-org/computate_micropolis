@@ -6,7 +6,7 @@
 install -d ~/.ansible/roles/computate.computate_micropolis
 
 # Clone the micropolis ansible role. 
-git clone git@github.com:computate-org/computate_micropolis.git ~/.ansible/roles/computate.computate_micropolis into the micropolis ansible role directory. 
+git clone git@github.com:computate-org/computate_micropolis.git ~/.ansible/roles/computate.computate_micropolis
 cd ~/.ansible/roles/computate.computate_micropolis
 ```
 
