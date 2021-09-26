@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Micropolis
+Comment=Micropolis like Sim City
+Icon={{ APP_SRC }}/micropolis-java/micropolisj.ico
+Exec=/usr/local/bin/micropolis
+Terminal=false
+Categories=Game;
+
