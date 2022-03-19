@@ -1,13 +1,6 @@
 ---
 APP_PYTHON: "{{ '/usr/bin/python' if lookup('file', '/usr/bin/python', errors='ignore') else '/usr/bin/python3' }}"
 APP_NAME: micropolis
-APP_DEPENDENCIES:
-  - pygobject2
-  - pygobject2-devel
-  - pycairo
-  - pycairo-devel
-  - pygtk2
-  - pygtk2-devel
 APP_USER: "{{ lookup('env', 'USER') }}"
 APP_GROUP: "{{ APP_USER }}"
 APP_SRC: "/usr/local/src/{{ APP_NAME  }}"

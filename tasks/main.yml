@@ -15,11 +15,34 @@
     ansible_python_interpreter: "{{ APP_PYTHON }}"
 - name: "install {{ APP_NAME }} dependencies"
   package:
-    name: "{{ APP_DEPENDENCIES }}"
+    name:
+      - swig
+      - pygobject2-devel
+      - pygtk2-devel
+      - libXpm-devel
     state: present
   become: true
   vars:
     ansible_python_interpreter: "{{ APP_PYTHON }}"
+  when: APP_PYTHON == '/usr/bin/python3'
+- name: "install {{ APP_NAME }} dependencies"
+  package:
+    name:
+      - swig
+      - python3-devel
+      - pygobject2-devel
+      - python2-cairo-devel
+      - pygtk2-devel
+      - libXpm-devel
+    state: present
+  become: true
+  vars:
+    ansible_python_interpreter: "{{ APP_PYTHON }}"
+  when: APP_PYTHON != '/usr/bin/python3'
+- name:
+  shell: alternatives --set python /usr/bin/python2
+  become: true
+  when: not lookup('file', 'usr/bin/python', errors='ignore')
 - name: Create the directory {{ APP_SRC }}
   file:
     name: "{{ APP_SRC }}"
